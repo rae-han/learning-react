@@ -6,7 +6,8 @@ const Info = () => {
 
   useEffect (() => {
     console.log('랜더링이 완료되었습니다!')
-    console.log({ name, nickname })
+    // console.log({ name, nickname })
+    console.log(name)
 
     return () => {
       console.log('cleanup', '언마운트되기 전이나 업데이트 되기 직전에 작업을 수행한다.')
