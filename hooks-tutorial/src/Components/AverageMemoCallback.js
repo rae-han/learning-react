@@ -24,11 +24,11 @@ const Average = () => {
     setNumber('');
   }, [number, list]); // number와 list를 조회해서 nextList 를 만든다.
 
-  const handleInsert = useCallback (e => {
+  const handleInsert = e => {
     if(e.key === 'Enter') {
-      this.onInsert(e);
+      onInsert(e);
     }
-  }, [])
+  }
 
   const avg = useMemo(() => getAverage(list), [list]);
 
