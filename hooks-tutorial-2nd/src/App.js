@@ -11,6 +11,11 @@ import HookUseReducer2nd from './Hook-Components/HookUseReducer2nd'
 import HookUseMemo1st from './Hook-Components/HookUseMemo1st'
 import HookUseMemo2nd from './Hook-Components/HookUseMemo2nd'
 
+import HookUseCallback1st from './Hook-Components/HookUseCallback1st'
+
+import HookUseRef1st from './Hook-Components/HookUseRef1st'
+import HookUseRef2nd from './Hook-Components/HookUseRef2nd'
+
 function App() {
   const [visible, setVisible] = useState(false)
 
@@ -55,6 +60,24 @@ function App() {
       <p>숫자를 등록할 때뿐만 아니라 인풋 내용이 수정될 때도 getAverage 함수가 호출 된다.</p>
       <p>useMemo를 사용하면 렌더링하는 과정에서 특정 값이 바뀌었을 때만 연산을 실행하고 , 원하는 값이 바뀌지 않았다면 이전에 연산했던 결과를 다시 사용한다.</p>
       <HookUseMemo2nd />
+
+      <hr />
+
+      <h3>7. useCallback</h3>
+      <p>useCallback은 useMemo와 비슷한데, 주로 렌더링 성능을 최적화해야 하는 상황에서 사용한다.</p>
+      <p>이벤트 핸들러 함수를 필요할 때만 생성할 수 있다.</p>
+      <HookUseCallback1st />
+
+      <p>useCallback은 결국 useMemo로 함수를 반환하는 상황에서 더 편하게 사용할 수 있는 Hook이다.</p>
+      <p>숫자, 문자열, 객체처럼 일반 값을 재사용하려면 useMemo를 사용하고, 함수를 재사용하러면 useCallback을 사용하면 된다.</p>
+
+      <hr />
+
+      <h3>8. useRef</h3>
+      <p>useRef는 함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 해준다.</p>
+      <HookUseRef1st/>
+
+      <HookUseRef2nd />
     </div>
   );
 }
