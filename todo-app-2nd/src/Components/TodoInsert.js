@@ -17,6 +17,11 @@ const TodoInsert = ({ onInsert }) => {
     e.preventDefault();
   }, [onInsert, value])
 
+  const onClick = useCallback(e => {
+    onInsert(value)
+    setValue('');
+  }, [onInsert, value])
+
   return (
     <form className="TodoInsert" onSubmit={onSubmit}>
       <input 
@@ -25,7 +30,7 @@ const TodoInsert = ({ onInsert }) => {
         value={value}
         onChange={onChange}
       />
-      <button type="submit"><MdAdd/></button>
+      <button type="submit" onClick={onClick}><MdAdd/></button>
     </form>
   );
 };
