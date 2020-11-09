@@ -1,0 +1,23 @@
+FROM node:8
+엘릭서 이벤트 서버: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/exwallet-zft-admin:event-api-latest
+엘릭서 이벤트 클라이언트: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/exwallet-zft-admin:event-web-latest
+국민사랑 몰 배포: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/gifticon-web:kmlovemall.web.latest
+ASP 가맹점: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/asp:fran_web_latest
+ASP 고객 개발: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/asp:customer_develop (아래 node 10 에 있는걸로 대체 됐습니다. 사용중이 아닌 거로 알고 있습니다.)
+ASP 고객 배포: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/asp:cust_web_latest (아래 node 10 에 있는걸로 대체 됐습니다. 사용중이 아닌 거로 알고 있습니다.)
+메뉴 가맹점: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/menu:fran_web_latest (사용중이 아닌걸로 압니다.)
+메뉴 고객: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/menu:cust_web_latest (사용중이 아닌걸로 압니다.)
+스피드 월렛: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/kpl/payment_web:dev.latest
+스피드 월렛 공지 개발: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/gifticon-web:spw.dev.latest
+스피드 월렛 공지 배포: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/gifticon-web:spw.prod.latest
+
+
+
+
+FROM node:10
+더세이퍼 개발: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/thermogate:mobile-latest
+더세이퍼 배포: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/thermogate:mobile-release
+ASP 고객 개발: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/asp:customer_develop
+ASP 고객 배포: 045825870686.dkr.ecr.ap-northeast-2.amazonaws.com/elixir/asp:cust_web_latest
+
+

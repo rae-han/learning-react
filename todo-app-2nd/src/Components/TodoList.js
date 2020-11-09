@@ -27,14 +27,6 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
       style={{ outline: 'none' }}
     ></List>
   );
-
-  // return (
-  //   <div className="TodoList">
-  //     { todos.map(todo => (
-  //       <TodoListItem todo={todo} onRemove={onRemove} onToggle={onToggle} key={todo.id}/>
-  //     ))}
-  //   </div>
-  // );
 };
 
 export default React.memo(TodoList);

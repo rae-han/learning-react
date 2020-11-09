@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
+
+import TodoTemplate from './components/TodoTemplate'
+import TodoList from './components/TodoList'
+import TodoInsert from './components/TodoInsert'
 
 const initBulkTodos = () => {
   let todos = [];
+
 
   for(let t=0; t<4; t++) {
     todos.push({
@@ -16,17 +21,32 @@ const initBulkTodos = () => {
 }
 
 function App() {
-  let [todos, setTodos ] = useState(initBulkTodos)
+  let bulkTodoData = initBulkTodos();
+  let [todos, setTodos ] = useState(bulkTodoData)
 
-  console.log(todos)
+  const nextId = useRef(bulkTodoData.length)
+
+  const onInsert = (text) => {
+    let todo = {
+      id: nextId.current,
+      text,
+      checked: false
+    }
+
+    nextId.current++;
+
+    setTodos(todos.concat(todo))
+  }  
 
   return (
     <div className="App">
+      <TodoTemplate>
+        <TodoInsert onInsert={onInsert}></TodoInsert>
+        <TodoList todos={todos}></TodoList>
 
+      </TodoTemplate>
     </div>
   );
 }
 
 export default App;
-
-// let colorchips = ['#ea6b1c', '#d0021b', '#fad201', '#2196f3', '#dbdbdb', '#d3b094', '#fec0cf', '#0eb0a7', '#0b421a', '#362415', '#000027', '#000000']
