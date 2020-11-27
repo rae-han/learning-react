@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './App.css';
 
 import TodoTemplate from './components/TodoTemplate'
@@ -9,7 +9,7 @@ const initBulkTodos = () => {
   let todos = [];
 
 
-  for(let t=0; t<4; t++) {
+  for(let t=0; t<4096; t++) {
     todos.push({
       id: t,
       text: `할일 ${t+1}`,
@@ -26,7 +26,7 @@ function App() {
 
   const nextId = useRef(bulkTodoData.length)
 
-  const onInsert = (text) => {
+  const onInsert = useCallback((text) => {
     let todo = {
       id: nextId.current,
       text,
@@ -34,15 +34,24 @@ function App() {
     }
 
     nextId.current++;
+    setTodos(todos => todos.concat(todo))
+  }, [])
 
-    setTodos(todos.concat(todo))
-  }  
+  const onRemove = useCallback(id => {
+    setTodos(todos => todos.filter(todo => todo.id !== id));
+  }, [])
+  
+  const onToggle = useCallback(id => {
+    setTodos(todos => todos.map(todo => 
+      todo.id === id ? { ...todo, checked: !todo.checked } : todo
+    ))
+  }, [])
 
   return (
     <div className="App">
       <TodoTemplate>
         <TodoInsert onInsert={onInsert}></TodoInsert>
-        <TodoList todos={todos}></TodoList>
+        <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}></TodoList>
 
       </TodoTemplate>
     </div>

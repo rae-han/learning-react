@@ -1,13 +1,15 @@
 import React from 'react';
 
-const TodoList = ({todos}) => {
+import TodoListItem from './TodoListItem'
+
+const TodoList = ({todos, onRemove, onToggle}) => {
   console.log(todos)
 
   return (
     <div>
-      { todos.map(todo => (<div key={todo.id}>{todo.text}</div>)) }
+      { todos.map(todo => (<TodoListItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle}></TodoListItem>)) }
     </div>
   );
 };
 
-export default TodoList;
+export default React.memo(TodoList);

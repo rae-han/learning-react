@@ -7,19 +7,6 @@ const TodoInsert = ({ onInsert }) => {
     setValue(e.target.value);
   }, [])
 
-  // const onClick = useCallback(e => {
-  //   onInsert(value)
-  //   setValue('')
-  // }, [onInsert, value])
-  
-  // const onKeyPress = useCallback(e => {
-  //   console.log(1)
-  //   if(e.key === 'Enter') {
-  //     onInsert(value);
-  //     setValue('')
-  //   }
-  // }, [onInsert, value])
-
   const onSubmit = useCallback(e => {
     onInsert(value)
     setValue('')
@@ -36,4 +23,3 @@ const TodoInsert = ({ onInsert }) => {
 };
 
 export default TodoInsert;
-cod

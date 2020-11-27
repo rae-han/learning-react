@@ -24,9 +24,9 @@ const Profile = ({ match }) => {
       <h3>
         { username } ({ profile.name })
       </h3>
-  <p>{profile.description}</p>
+      <p>{profile.description}</p>
     </div>
   );
 };
 
-export default Profile;
+export default Profile; 
